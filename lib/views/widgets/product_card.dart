@@ -50,7 +50,7 @@ class ProductCard extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          "\$ ${(double.parse(e!.productValue!) / 15143).toStringAsFixed(2)}",
+                          "\$ ${(double.parse(e!.productValue!) / 15143).toStringAsFixed(1)}",
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,

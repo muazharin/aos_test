@@ -1,8 +1,10 @@
 import 'package:aos_test/views/history.dart';
 import 'package:aos_test/views/home.dart';
+import 'package:aos_test/views/product/cart.dart';
 import 'package:aos_test/views/search.dart';
 import 'package:aos_test/views/user.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MainMenu extends StatefulWidget {
   const MainMenu({Key? key}) : super(key: key);
@@ -94,10 +96,10 @@ class _MainMenuState extends State<MainMenu> {
           ),
         ),
       ),
-      floatingActionButton: const FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
-        onPressed: null,
-        child: Icon(Icons.shopping_cart_outlined),
+        onPressed: () => Get.toNamed("/cart"),
+        child: const Icon(Icons.shopping_cart_outlined),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );

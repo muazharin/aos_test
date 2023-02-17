@@ -37,6 +37,8 @@ class TableProduct {
     this.productValue,
     this.productType,
     this.productPhoto,
+    this.productCount,
+    this.productSize,
   });
 
   int? no;
@@ -46,6 +48,8 @@ class TableProduct {
   String? productValue;
   String? productType;
   String? productPhoto;
+  int? productCount;
+  String? productSize;
 
   factory TableProduct.fromJson(Map<String, dynamic> json) => TableProduct(
         no: json["NO"],
@@ -55,6 +59,8 @@ class TableProduct {
         productValue: json["productValue"],
         productType: json["productType"],
         productPhoto: json["productPhoto"],
+        productCount: json["productCount"] ?? 0,
+        productSize: json["productSize"] ?? "",
       );
 
   Map<String, dynamic> toJson() => {
@@ -65,6 +71,8 @@ class TableProduct {
         "productValue": productValue,
         "productType": productType,
         "productPhoto": productPhoto,
+        "productCount": productCount,
+        "productSize": productSize,
       };
 }
 

@@ -24,13 +24,14 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    homeController.init();
-    homeController.getProduct();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      homeController.init();
+      homeController.getProduct();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    Size s = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -41,7 +42,7 @@ class _HomeState extends State<Home> {
           style: TextStyle(
             fontSize: 24,
             color: Colors.black,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
         ),
         actions: const [

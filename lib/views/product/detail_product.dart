@@ -12,7 +12,13 @@ class DetailProduct extends StatefulWidget {
 }
 
 class _DetailProductState extends State<DetailProduct> {
-  String s = "";
+  TableProduct ex = TableProduct();
+  @override
+  void initState() {
+    super.initState();
+    setState(() => ex = widget.e);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +69,7 @@ class _DetailProductState extends State<DetailProduct> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            "\$ ${(double.parse(widget.e.productValue!) / 15143).toStringAsFixed(2)}",
+                            "\$ ${(double.parse(widget.e.productValue!) / 15143).toStringAsFixed(1)}",
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
@@ -117,20 +123,28 @@ class _DetailProductState extends State<DetailProduct> {
                 Row(
                   children: ["S", "M", "L", "XL"].map<Widget>((e) {
                     return InkWell(
-                      onTap: () => setState(() => s = e),
+                      onTap: () {
+                        setState(() {
+                          ex.productSize = e;
+                        });
+                      },
                       child: Container(
                         height: 50,
                         width: 50,
                         margin: const EdgeInsets.only(right: 16),
                         decoration: BoxDecoration(
-                          color: e == s ? Colors.black : Colors.grey[350],
+                          color: e == ex.productSize
+                              ? Colors.black
+                              : Colors.grey[350],
                           borderRadius: BorderRadius.circular(50),
                         ),
                         child: Center(
                           child: Text(
                             e,
                             style: TextStyle(
-                              color: e == s ? Colors.white : Colors.black,
+                              color: e == ex.productSize
+                                  ? Colors.white
+                                  : Colors.black,
                             ),
                           ),
                         ),
@@ -173,7 +187,8 @@ class _DetailProductState extends State<DetailProduct> {
                         ),
                       ),
                     ),
-                    openBuilder: (context, action) => const Cart(),
+                    openBuilder: (context, action) =>
+                        Cart(dataProduct: widget.e),
                   ),
                 ),
               ],
