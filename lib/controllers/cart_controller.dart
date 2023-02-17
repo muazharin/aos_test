@@ -88,7 +88,10 @@ class CartController extends GetxController {
             onTap: () {
               listCart = [];
               summary();
-              Get.offAll(const MainMenu());
+              Get.offAll(
+                const MainMenu(),
+                transition: Transition.zoom,
+              );
             },
             child: Container(
               padding: const EdgeInsets.all(16),

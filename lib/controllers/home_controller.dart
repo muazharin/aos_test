@@ -49,13 +49,13 @@ class HomeController extends GetxController {
             .toList();
       } else {
         isError(true);
-        error.value = "Terjadi Kesalahan1";
+        error.value = "Terjadi Kesalahan";
       }
     }).catchError((e) {
       print(e);
       isLoading(false);
       isError(true);
-      error.value = "Terjadi Kesalahan2";
+      error.value = "$e";
     });
   }
 }

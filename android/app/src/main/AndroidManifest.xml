@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.muazharin.aos_test">
+   <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="aos_test"
         android:name="${applicationName}"

@@ -13,8 +13,8 @@ class GlobalService {
           .timeout(const Duration(seconds: 5));
     } on TimeoutException catch (_) {
       throw 'Request Timeout';
-    } on SocketException catch (_) {
-      throw 'Unable to access server';
+    } on SocketException catch (e) {
+      throw 'Unable to access server $e';
     } catch (e) {
       throw 'Error: ' + e.toString();
     }
